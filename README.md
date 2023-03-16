@@ -13,16 +13,16 @@ starter repo, then load the repo into [CodeSandbox].
 
 You should also add the Redux DevTools to your browser extensions if you have
 not done so already. To add the extension in Chrome, go
-[here][add-ReduxDevTools]. For other browsers, search in your extension/add-on
+[here][add-reduxdevtools]. For other browsers, search in your extension/add-on
 menu for Redux DevTools and follow the instructions for adding it to your
 browser.
 
 ## Action Creator
 
-Start by creating an __articleReducer.js__ file in the __src/store__ directory.
+Start by creating an **articleReducer.js** file in the **src/store** directory.
 
 Since there is no database, import the data that is stored in
-__src/data/data.json__, assigning it to the variable name `articles`. This data
+**src/data/data.json**, assigning it to the variable name `articles`. This data
 will be used as the _payload_ for the action creator you are about to create.
 
 Define and export an action creator function called `loadArticles`. It should
@@ -35,9 +35,9 @@ payload under the key `articles`.
 If you have done this correctly your code will look similar to this:
 
 ```js
-import articles from '../data/data.json';
+import articles from "../data/data.json";
 
-const LOAD_ARTICLES = 'article/loadArticles';
+const LOAD_ARTICLES = "article/loadArticles";
 
 export const loadArticles = () => {
   return {
@@ -54,7 +54,7 @@ should hold an array with the key of `entries` and the value of an empty array.
 The object should also hold another key, `isLoading`, with a boolean value of
 `true`.
 
-Create an `articleReducer` function. Every reducer function takes two arguments,
+Create an ``articleReducer function. Every reducer function takes two arguments,
 `state` and `action`. Inside the `reducer` function, create a `switch`/`case`
 statement that switches based on an action's type. The first action type it
 should check for is `LOAD_ARTICLES`. If `action.type` is `LOAD_ARTICLES`, it
@@ -83,21 +83,21 @@ export default articleReducer;
 
 ## Connect the reducer to Redux
 
-In the root __index.js__ file of your __store__ directory, import the
+In the root **index.js** file of your **store** directory, import the
 `articleReducer` reducer using the variable name `articleReducer`. Now, add this
 reducer to the `combineReducers` function, giving it a key of `articleState` and
 a value of `articleReducer`.
 
 ## Test on the Window
 
-To test if your reducer is working, go to your root __index.js__ and
+To test if your reducer is working, go to your root **index.js** and
 
-1. Import the `loadArticles` action creator from __./store/articleReducer.js__
-    - *Remember: named exports need to be wrapped in { } when being imported.*
+1. Import the `loadArticles` action creator from **./store/articleReducer.js**
+   - _Remember: named exports need to be wrapped in { } when being imported._
 2. Add this code beneath your `store` variable:
 
 ```js
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== "production") {
   window.store = store;
   window.loadArticles = loadArticles;
 }
@@ -116,7 +116,7 @@ In your sandbox browser, click the button to `Open In New Window`. In the
 `Console` tab of the DevTools in this new window, type the following code:
 
 ```js
-store.dispatch(loadArticles())
+store.dispatch(loadArticles());
 ```
 
 If all is working correctly, you should see the `redux-logger` data in the
@@ -134,8 +134,8 @@ array.
 2. Create a `reducer`
 3. Test an `action creator` on the window of the browser using `redux-logger`
 
-[CodeSandbox]: https://codesandbox.io
+[codesandbox]: https://codesandbox.io
 [action creator]: https://redux.js.org/usage/reducing-boilerplate#action-creators
-[add-ReduxDevTools]: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
+[add-reduxdevtools]: https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
 [reducer]: https://redux.js.org/usage/structuring-reducers/basic-reducer-structure
 [redux-logger]: https://appacademy-open-assets.s3.us-west-1.amazonaws.com/Modular-Curriculum/content/react-redux/topics/redux/assets/redux-logger-articles.png
